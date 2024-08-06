@@ -56,4 +56,4 @@ Agora verificamos o banco de dados no postegreSQL para garantir que a tabela 'te
 
 ![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXe6n28QpBDI-IefFcwXAaKZvHXno_cIdSFkJqf2k3pg4egjLx5ksITaqbTws1W-tPOBZzIuzontQvjrvnSdMJXtSeZRtC8RFMXdxfCLDnLPJMdTJBniYKVAqj1H201mYFyvUIrLhxWisFuS1sWstgvHbCI?key=mcTeGO_pylJdcN1ITL-rTQ)
 
-:pushpin: [​Agora vamos criar a ETL_from_oltp_to_olap](HOW_TO/3_ETL_test_from_oltp_to_olap.md)
+:pushpin: [Agora vamos criar a ETL_from_oltp_to_olap](HOW_TO/3_ETL_test_from_oltp_to_olap.md)
