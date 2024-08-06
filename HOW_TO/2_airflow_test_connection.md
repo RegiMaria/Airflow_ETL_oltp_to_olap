@@ -44,11 +44,11 @@ Agora testamos a conexão do airflow com a tabela olap_dw.
 
 Vamos criar uma DAG pra criar uma tabela ‘teste_olap’ no banco de dados olap_dw com o valor 60.
 
-:pushpin: ​A DAG com o teste dessa conexão está em airflow_test_connection
+:pushpin: [A DAG com o teste dessa conexão está em airflow_test_connection](teste/1_airflow_teste_connection.py)
 
 O pipeline foi bem sucedido e podemos ver o valor retornado, que é o valor que inserimos na DAG '60'.
 
-![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfCf0WrbAwHznhFA3jw6iMoLTUlNJGVF6btO9XyAaVslPBqQeB8Q5jXRRyRV_s8HTXAwi2SJiBHyIkxxHyeN6J-rjGtDyza-eAohJuZ1MGeC5jP08rr7kOW5K5NTW6K1Zz5KKvHPpK-z-NmslNZHpUrtW3j?key=mcTeGO_pylJdcN1ITL-rTQ)
+![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXd1VWB7rDWdgZMoAgsPHYpyeiFWms6Z_-q8fbKRJwoMhqO1R2fRk_QbfmtEXIgRkEv56Btu6CETh11rKs20M7I7bHe7_VUf8MkfMi5d3NNJP1fFYq1yKRPp34I_YYMOKcyEj9k7Ui9fXi8ufn1FcwjfNx7P?key=mcTeGO_pylJdcN1ITL-rTQ)
 
 ![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeMEitit57oZN-tMppvYT0O3kWoVPJBCExJZArHOzMplA_wPp78bKEEqMdxJnXMrIZRzttBZYlwOeB7MaVifG7ZmjWDEj5D1hoEfd800fmwA3IgOegYAmmEhnV001rv4O9nW3goFfjQDyjQkYp94kqlOtI?key=mcTeGO_pylJdcN1ITL-rTQ)
 
