@@ -8,7 +8,7 @@ Vamos criar uma tabela chamada ‘teste’ na camada relacional com alguns dados
 
 O objetivo dessa tarefa será de testar as conexões do airflow com as tabelas no banco de dados.
 
-Conexões no airflow:
+:small_orange_diamond:Conexões no airflow:
 
 localhost:8080//admin/connection:
 
