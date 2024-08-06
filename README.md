@@ -1,12 +1,12 @@
-<h3>PROJETO: Desenvolvendo DAG com airflow</h3>
+<h3>PROJETO: Desenvolvendo DAG com airflow (Em andamento)</h3>
 
 ----------------------------------------------
 
-**Objetivo geral:**
+:heavy_check_mark:**Objetivo geral:**
 
 Desenvolver DAG para automatizar extração de dados de tabelas OLTP , transformar e carregar em tabelas OLAP de Data Warehouse.
 
-**Objetivos específicos:**
+:heavy_check_mark:**Objetivos específicos:**
 
 - Estudar sobre Hookes e Operators;
 
@@ -45,7 +45,7 @@ Desenvolver DAG para automatizar extração de dados de tabelas OLTP , transform
   </tr>
 </table>
 
-
+![wyden_logo](imag/wydenlogo.png)
 
 <h3>O PROJETO</h3>
 
@@ -55,11 +55,11 @@ Nesse projeto vamos realizar a transferência de alguns dados de tabelas transac
 
 Resumo:
 
-![etl_pipeline](C:\Users\User\Downloads\etl_pipeline.png)
+![etl_pipeline](imag/etl_pipeline.png)
 
 Usamos um ambiente de desenvolvimento local para construção do pipeline.
 
-**Ferramentas:**
+:heavy_check_mark:**Ferramentas:**
 
 [Airflow](https://airflow.apache.org/docs/apache-airflow/stable/installation/index.html)
 
@@ -75,23 +75,23 @@ Usamos um ambiente de desenvolvimento local para construção do pipeline.
 
 Vamos acessar o airflow, criar senha e admin, testamos a DAG conforme nos a modificamos.
 
-![pipeline_airflow](C:\Users\User\Downloads\pipeline_airflow.png)
+![pipeline_airflow](imag/pipeline_airflow.png)
 
-**Explicando as tarefas:**
+:heavy_check_mark:**Explicando as tarefas:**
 
-**Extract_data:** A extração deve extrair os dados das tabelas relacionais **oltp_db.**
+:red_circle:**Extract_data:** A extração deve extrair os dados das tabelas relacionais **oltp_db.**
 
 A princípio, por razão de aprendizado, vamos fazer uma DAG de extração para cada tabela e não vamos usar TaskGroup. Para saber mais sobre o decorador TaskGroup consulte a [documentação.](https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/decorators/task_group/index.html) 
 
-**Transform_data:** Prepara os dados para serem armazenados na tabela do banco de dados **olap_dw.**
+:red_circle:**Transform_data:** Prepara os dados para serem armazenados na tabela do banco de dados **olap_dw.**
 
-**Load_data:** Carregamos os dados para o database **olap_dw** para consumo em Data Warehouse.
+:red_circle:**Load_data:** Carregamos os dados para o database **olap_dw** para consumo em Data Warehouse.
 
 
 
-:pushpin:Criando_e_populando_tabelas_relacionais
+:pushpin:[Criando_e_populando_tabelas_relacionais](OLTP_DB)
 
-:pushpin:Teste_conexão_airflow_postgresql
+:pushpin:[Teste_conexão_airflow_postgresql](teste)
 
-:pushpin:How_to
+:pushpin:[How_to](HOW_TO)
 
