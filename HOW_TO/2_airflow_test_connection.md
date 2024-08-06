@@ -46,7 +46,7 @@ Vamos criar uma DAG pra criar uma tabela ‘teste_olap’ no banco de dados olap
 
 O pipeline foi bem sucedido e podemos ver o valor retornado, que é o valor que inserimos na DAG '60'.
 
-![dag_teste_olap_dw](C:\Users\User\Downloads\ETL\imag\dag_teste_olap_dw.png)
+![dag_teste_olap_dw](imag/database_olap_teste_olap.jpg)
 
 ![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeMEitit57oZN-tMppvYT0O3kWoVPJBCExJZArHOzMplA_wPp78bKEEqMdxJnXMrIZRzttBZYlwOeB7MaVifG7ZmjWDEj5D1hoEfd800fmwA3IgOegYAmmEhnV001rv4O9nW3goFfjQDyjQkYp94kqlOtI?key=mcTeGO_pylJdcN1ITL-rTQ)
 
@@ -54,4 +54,4 @@ Agora verificamos o banco de dados no postegreSQL para garantir que a tabela 'te
 
 ![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXe6n28QpBDI-IefFcwXAaKZvHXno_cIdSFkJqf2k3pg4egjLx5ksITaqbTws1W-tPOBZzIuzontQvjrvnSdMJXtSeZRtC8RFMXdxfCLDnLPJMdTJBniYKVAqj1H201mYFyvUIrLhxWisFuS1sWstgvHbCI?key=mcTeGO_pylJdcN1ITL-rTQ)
 
-:pushpin: ​Agora vamos criar a ETL_from_oltp_to_olap
+:pushpin: [​Agora vamos criar a ETL_from_oltp_to_olap](HOW_TO/3_ETL_test_from_oltp_to_olap.md)
