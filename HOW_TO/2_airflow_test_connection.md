@@ -48,9 +48,7 @@ Vamos criar uma DAG pra criar uma tabela ‘teste_olap’ no banco de dados olap
 
 O pipeline foi bem sucedido e podemos ver o valor retornado, que é o valor que inserimos na DAG '60'.
 
-
-
-![dag_teste_olap_dw](C:\Users\User\Documents\PROGRAMAÇÃO\1_Github_projetos\1_Posgraduacao_wyden\NOVO_AIFLOW_ETL\imag\dag_teste_olap_dw.png)
+![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfCf0WrbAwHznhFA3jw6iMoLTUlNJGVF6btO9XyAaVslPBqQeB8Q5jXRRyRV_s8HTXAwi2SJiBHyIkxxHyeN6J-rjGtDyza-eAohJuZ1MGeC5jP08rr7kOW5K5NTW6K1Zz5KKvHPpK-z-NmslNZHpUrtW3j?key=mcTeGO_pylJdcN1ITL-rTQ)
 
 ![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeMEitit57oZN-tMppvYT0O3kWoVPJBCExJZArHOzMplA_wPp78bKEEqMdxJnXMrIZRzttBZYlwOeB7MaVifG7ZmjWDEj5D1hoEfd800fmwA3IgOegYAmmEhnV001rv4O9nW3goFfjQDyjQkYp94kqlOtI?key=mcTeGO_pylJdcN1ITL-rTQ)
 
