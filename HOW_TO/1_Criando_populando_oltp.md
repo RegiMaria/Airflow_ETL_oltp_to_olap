@@ -4,7 +4,7 @@ Primeiro, criamos as tabelas relacionais cliente, endereco, produto, fonte de re
 
 :pushpin:[Consulte o DDL completo das tabelas relacionais aqui](OLTP_DB).
 
-![tabela_cliente](/oltp_cliente.png)
+![tabela_cliente]([imag/oltp_cliente.png](https://github.com/RegiMaria/Airflow_ETL_oltp_to_olap/blob/main/imag/oltp_cliente.png))
 
 Agora vamos criar as tabelas dimensionais  e de fato no Data Warehouse.
 
