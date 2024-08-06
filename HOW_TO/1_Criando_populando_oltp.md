@@ -4,13 +4,15 @@ Primeiro, criamos as tabelas relacionais cliente, endereco, produto, fonte de re
 
 :pushpin:[Consulte o DDL completo das tabelas relacionais aqui](OLTP_DB).
 
-![tabela_cliente](/oltp_cliente.png)
+Criação da tabela relacional cliente:
+
+![oltp_cliente](C:\Users\User\Documents\PROGRAMAÇÃO\1_Github_projetos\1_Posgraduacao_wyden\NOVO_AIFLOW_ETL\imag\oltp_cliente.png)
 
 Agora vamos criar as tabelas dimensionais  e de fato no Data Warehouse.
 
 :pushpin:[Consulte o DDL das tabelas dimensionais aqui](OLAP_DW).
 
-![Tabela_dimcliente](imag/olap_dimcliente.png)
+![olap_dimcliente](C:\Users\User\Documents\PROGRAMAÇÃO\1_Github_projetos\1_Posgraduacao_wyden\NOVO_AIFLOW_ETL\imag\olap_dimcliente.png)
 
 É possível automatizar a criação das tabelas dimensionais a partir das tabelas relacionais durante a fase de transformação, mas não foi esse o caso. Então, revisamos todas as tabelas antes de fazer o fluxo de dados.
 
