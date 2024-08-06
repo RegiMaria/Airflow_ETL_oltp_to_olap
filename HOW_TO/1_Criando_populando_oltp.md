@@ -6,7 +6,7 @@ Primeiro, criamos as tabelas relacionais cliente, endereco, produto, fonte de re
 
 Criação da tabela relacional cliente:
 
-![tabela_cliente](C:\Users\User\Documents\PROGRAMAÇÃO\1_Github_projetos\1_Posgraduacao_wyden\NOVO_AIFLOW_ETL\imag\cliente_oltp.png)
+![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeoBgEv4nNPh_OmWVtTb71eJms0ieidxYgkVt6MT_OSm_5t4K-lncZTFt-PwYRkN4hcqFueZpraCHyX_SBwPmLGfhFv-wuljEF1ZFeWTJgQqnkqXQYUuxMZQl6qNne4qaeTa2jUlR0wWr23iB6Kd8Jei7Q?key=mcTeGO_pylJdcN1ITL-rTQ)
 
 
 
@@ -14,7 +14,7 @@ Agora vamos criar as tabelas dimensionais  e de fato no Data Warehouse.
 
 :pushpin:[Consulte o DDL das tabelas dimensionais aqui](OLAP_DW).
 
-![olap_dimcliente](C:\Users\User\Documents\PROGRAMAÇÃO\1_Github_projetos\1_Posgraduacao_wyden\NOVO_AIFLOW_ETL\imag\olap_dimcliente.png)
+![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcPPh4rsMBx8oPMpiICA-uiP-trnCfqC1nbRlEc17NASwAtmzbrKPTbe2JhL3-cho9Z41q8zjPUNA9dI0_leobMpjOhd89oT263k_R-r_i3BiqFzxKlvdw9islpwd5PtIgzwmF0mLomrVTFF5SjHHHpjPdL?key=mcTeGO_pylJdcN1ITL-rTQ)
 
 É possível automatizar a criação das tabelas dimensionais a partir das tabelas relacionais durante a fase de transformação, mas não foi esse o caso. Então, revisamos todas as tabelas antes de fazer o fluxo de dados.
 
