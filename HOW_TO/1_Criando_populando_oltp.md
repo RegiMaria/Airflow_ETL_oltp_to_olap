@@ -4,13 +4,11 @@ Primeiro, criamos as tabelas relacionais cliente, endereco, produto, fonte de re
 
 :pushpin:[Consulte o DDL completo das tabelas relacionais aqui](OLTP_DB).
 
-<<<<<<< HEAD
 Criação da tabela relacional cliente:
 
-![oltp_cliente](C:\Users\User\Documents\PROGRAMAÇÃO\1_Github_projetos\1_Posgraduacao_wyden\NOVO_AIFLOW_ETL\imag\oltp_cliente.png)
-=======
-![tabela_cliente](imag/cliente_oltp.png)
->>>>>>> 2e7242697d48844aab8df8d77a2a16e05bf2f7db
+![tabela_cliente](C:\Users\User\Documents\PROGRAMAÇÃO\1_Github_projetos\1_Posgraduacao_wyden\NOVO_AIFLOW_ETL\imag\cliente_oltp.png)
+
+
 
 Agora vamos criar as tabelas dimensionais  e de fato no Data Warehouse.
 
