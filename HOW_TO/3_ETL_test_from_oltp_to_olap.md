@@ -4,7 +4,7 @@
 
 Agora vamos transferir dados entre banco de dados. Extraímos os dados de oltp_dw (50) e carregamos em olap_dw (quem tem '60').
 
-:pushpin:A DAG com ETL está em ETL_test_from_oltp_to_olap
+:pushpin:[A DAG com ETL está em ETL_test_from_oltp_to_olap](teste/2_ETL_test_from_oltp_to_OLAP.py)
 
 Com o ETL bem sucedido, verificamos diretamente o banco de dados e o novo valor foi inserido com sucesso.
 
