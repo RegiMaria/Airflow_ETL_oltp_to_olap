@@ -80,7 +80,7 @@ Agora vamos colocar **verificações pra existência de dados como ValueErro**.
 
 Vamos criar o fluxo de trabalho para transferir os dados das tabelas fonte_renda e faixa_renda no sistema OLTP para o sistema OLAP. 
 
-:pushpin:Aqui podemos ver o How to do ETL_dimfonterenda_dimfaixarenda
+:pushpin:[Aqui podemos ver o How to do ETL_dimfonterenda_dimfaixarenda](DAG/How_to_do/ETL_dimfonterenda_dimfaixarenda.md)
 
 
 
