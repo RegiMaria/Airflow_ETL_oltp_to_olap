@@ -8,63 +8,62 @@ SELECT * FROM pagamento;
 -- Populando a tabela transacional endereco
 INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81010-000', 'Rua Primeiro de Maio', 101, 'CIC', 'Curitiba', 'PR');
 INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81020-000', 'Rua Segunda', 202, 'Tatuquara', 'Curitiba', 'PR');
-INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81030-000', 'Rua Terceira', 303, 'SÌtio Cercado', 'Curitiba', 'PR');
-INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81040-000', 'Rua Quarta', 404, 'Cap„o Raso', 'Curitiba', 'PR');
+INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81030-000', 'Rua Terceira', 303, 'S√≠tio Cercado', 'Curitiba', 'PR');
+INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81040-000', 'Rua Quarta', 404, 'Cap√£o Raso', 'Curitiba', 'PR');
 INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81050-000', 'Rua Quinta', 505, 'Cachoeira', 'Curitiba', 'PR');
 INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81060-000', 'Rua Sexta', 606, 'Fazendinha', 'Curitiba', 'PR');
-INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81070-000', 'Rua SÈtima', 707, 'Boqueir„o', 'Curitiba', 'PR');
+INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81070-000', 'Rua S√©tima', 707, 'Boqueir√£o', 'Curitiba', 'PR');
 INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81080-000', 'Rua Oitava', 808, 'Ganchinho', 'Curitiba', 'PR');
 INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81090-000', 'Rua Nona', 909, 'Campo de Santana', 'Curitiba', 'PR');
-INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81100-000', 'Rua DÈcima', 1010, 'Novo Mundo', 'Curitiba', 'PR');
+INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('81100-000', 'Rua D√©cima', 1010, 'Novo Mundo', 'Curitiba', 'PR');
 
-INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82010-000', 'Rua Onze', 1111, '¡gua Verde', 'Curitiba', 'PR');
-INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82020-000', 'Rua Doze', 1212, 'Port„o', 'Curitiba', 'PR');
+INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82010-000', 'Rua Onze', 1111, '√Ågua Verde', 'Curitiba', 'PR');
+INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82020-000', 'Rua Doze', 1212, 'Port√£o', 'Curitiba', 'PR');
 INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82030-000', 'Rua Treze', 1313, 'Alto da XV', 'Curitiba', 'PR');
 INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82040-000', 'Rua Quatorze', 1414, 'Batel', 'Curitiba', 'PR');
 INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82050-000', 'Rua Quinze', 1515, 'Bigorrilho', 'Curitiba', 'PR');
 INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82060-000', 'Rua Dezesseis', 1616, 'Cabral', 'Curitiba', 'PR');
-INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82070-000', 'Rua Dezessete', 1717, 'Jardim das AmÈricas', 'Curitiba', 'PR');
-INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82080-000', 'Rua Dezoito', 1818, 'JuvevÍ', 'Curitiba', 'PR');
-INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82090-000', 'Rua Dezenove', 1919, 'MercÍs', 'Curitiba', 'PR');
-INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82100-000', 'Rua Vinte', 2020, 'Semin·rio', 'Curitiba', 'PR');
+INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82070-000', 'Rua Dezessete', 1717, 'Jardim das Am√©ricas', 'Curitiba', 'PR');
+INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82080-000', 'Rua Dezoito', 1818, 'Juvev√™', 'Curitiba', 'PR');
+INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82090-000', 'Rua Dezenove', 1919, 'Merc√™s', 'Curitiba', 'PR');
+INSERT INTO endereco (cep, rua, numero, bairro, cidade, estado) VALUES ('82100-000', 'Rua Vinte', 2020, 'Semin√°rio', 'Curitiba', 'PR');
 
 -- Fonte de renda:
 
 INSERT INTO fonte_renda (descricao) VALUES ('CLT');
-INSERT INTO fonte_renda (descricao) VALUES ('autÙnomo');
+INSERT INTO fonte_renda (descricao) VALUES ('aut√¥nomo');
 INSERT INTO fonte_renda (descricao) VALUES ('Pensionista INSS');
-INSERT INTO fonte_renda (descricao) VALUES ('Bolsa FamÌlia');
-INSERT INTO fonte_renda (descricao) VALUES ('Servidor P˙blico Municipal');
-INSERT INTO fonte_renda (descricao) VALUES ('Servidor P˙blico Estadual');
+INSERT INTO fonte_renda (descricao) VALUES ('Bolsa Fam√≠lia');
+INSERT INTO fonte_renda (descricao) VALUES ('Servidor P√∫blico Municipal');
+INSERT INTO fonte_renda (descricao) VALUES ('Servidor P√∫blico Estadual');
 
-ALTER TABLE fonte_renda
-ADD descricao VARCHAR2(100);
-INSERT INTO fonte_renda (descricao) VALUES ('Contrato PJ'); -- Adicionando o Contrato PJ
 
-INSERT INTO faixa_renda (descricao) VALUES ('Baixa renda: atÈ 3 sal·rios mÌnimos');
-INSERT INTO faixa_renda (descricao) VALUES ('Media renda: de 3 a 6 sal·rios mÌnimos');
-INSERT INTO faixa_renda (descricao) VALUES ('Alta renda: a partir de 6 sal·rios mÌnimos');
+
+INSERT INTO faixa_renda (descricao) VALUES ('Baixa renda: at√© 3 sal√°rios m√≠nimos');
+INSERT INTO faixa_renda (descricao) VALUES ('Media renda: de 3 a 6 sal√°rios m√≠nimos');
+INSERT INTO faixa_renda (descricao) VALUES ('Alta renda: a partir de 6 sal√°rios m√≠nimos');
+INSERT INTO fonte_renda (descricao) VALUES ('Contrato PJ');
 
 
 -- Produtos
 
 INSERT INTO produto (nome_produto, descricao, tipo_produto, valor_minimo, valor_maximo, numero_parcelas_maximo, condicoes_especiais) VALUES 
-('CrÈdito direto ao consumidor - Energia', 'CDCE - DÈbito energia', 'CDCE', 500, 2200, 24, 'N„o comprova renda');
+('Cr√©dito direto ao consumidor - Energia', 'CDCE - D√©bito energia', 'CDCE', 500, 2200, 24, 'N√£o comprova renda');
 
 INSERT INTO produto (nome_produto, descricao, tipo_produto, valor_minimo, valor_maximo, numero_parcelas_maximo, condicoes_especiais) VALUES 
-('CrÈdito com dÈbito em conta', 'CDC DÈbito em conta', 'CDC', 500, 3000, 18, 'Comprova renda');
+('Cr√©dito com d√©bito em conta', 'CDC D√©bito em conta', 'CDC', 500, 3000, 18, 'Comprova renda');
 
 INSERT INTO produto (nome_produto, descricao, tipo_produto, valor_minimo, valor_maximo, numero_parcelas_maximo, condicoes_especiais) VALUES 
-('CrÈdito pessoal com garantia - CP auto', 'CPGA', 'CPGA', 5000, 50000, 36, 'Carros de atÈ 20 anos como garantia');
+('Cr√©dito pessoal com garantia - CP auto', 'CPGA', 'CPGA', 5000, 50000, 36, 'Carros de at√© 20 anos como garantia');
 
 INSERT INTO produto (nome_produto, descricao, tipo_produto, valor_minimo, valor_maximo, numero_parcelas_maximo, condicoes_especiais) VALUES 
-('CrÈdito Pessoal Energia', 'CPE', 'CPE', 400, 2200, 22, 'N„o comprova renda - Parcela na fatura de energia');
+('Cr√©dito Pessoal Energia', 'CPE', 'CPE', 400, 2200, 22, 'N√£o comprova renda - Parcela na fatura de energia');
 
 INSERT INTO produto (nome_produto, descricao, tipo_produto, valor_minimo, valor_maximo, numero_parcelas_maximo, condicoes_especiais) VALUES 
-('CrÈdito pessoal Boleto', 'CPB', 'CPB', 500, 10000, 22, 'Comprova renda');
+('Cr√©dito pessoal Boleto', 'CPB', 'CPB', 500, 10000, 22, 'Comprova renda');
 
 INSERT INTO produto (nome_produto, descricao, tipo_produto, valor_minimo, valor_maximo, numero_parcelas_maximo, condicoes_especiais) VALUES 
-('CrÈdito consignado aprovado', 'CCA -CrÈdito consignado aprovado', 'CCA', 300, 10000, 22, 'Ou atÈ 30% do sal·rio - N„o comprova renda');
+('Cr√©dito consignado aprovado', 'CCA -Cr√©dito consignado aprovado', 'CCA', 300, 10000, 22, 'Ou at√© 30% do sal√°rio - N√£o comprova renda');
 
 -- Cliente 
 
@@ -73,7 +72,7 @@ VALUES ('Carla Oliveira', '23456789012',34, TO_DATE('1990-02-25', 'YYYY-MM-DD'),
 
 
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao, fonte_renda_id, faixa_renda_id, endereco_id) 
-VALUES ('Jo„o da Silva', '12345678901',37, TO_DATE('1985-01-15', 'YYYY-MM-DD'), 'M', 'joao.silva@example.com', '(41) 98765-4321', 'Pintor', 2, 1,2);
+VALUES ('Jo√£o da Silva', '12345678901',37, TO_DATE('1985-01-15', 'YYYY-MM-DD'), 'M', 'joao.silva@example.com', '(41) 98765-4321', 'Pintor', 2, 1,2);
 
 
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao, fonte_renda_id, faixa_renda_id, endereco_id) 
@@ -84,7 +83,7 @@ VALUES ('Ana Costa', '45678901234',29, TO_DATE('1995-04-10', 'YYYY-MM-DD'), 'F',
 
 
 INSERT INTO cliente (nome, cpf,idade,  data_nascimento, sexo, email, telefone, profissao, fonte_renda_id, faixa_renda_id, endereco_id) 
-VALUES ('Suelem Magalh„es', '56789012345', 45, TO_DATE('1979-05-22', 'YYYY-MM-DD'), 'F', 'su.maga@example.com', '(41) 98765-6789', 'Auxiliar de serviÁos gerais',1,1,5);
+VALUES ('Suelem Magalh√£es', '56789012345', 45, TO_DATE('1979-05-22', 'YYYY-MM-DD'), 'F', 'su.maga@example.com', '(41) 98765-6789', 'Auxiliar de servi√ßos gerais',1,1,5);
 
 INSERT INTO cliente (nome, cpf,idade,  data_nascimento, sexo, email, telefone, profissao, fonte_renda_id, faixa_renda_id, endereco_id) 
 VALUES ('Marcelo Fernandes', '67890123456', 41, TO_DATE('1981-06-13', 'YYYY-MM-DD'), 'M', 'marcelo.fernandes@example.com', '(41) 97654-3210','Eletricista', 2,2,6);
@@ -93,10 +92,10 @@ INSERT INTO cliente (nome, cpf, idade,  data_nascimento, sexo, email, telefone, 
 VALUES ('Juliana Pereira', '78901234567', 41, TO_DATE('1983-07-08', 'YYYY-MM-DD'), 'F', 'juliana.pereira@example.com', '(41) 96543-2109', 'Vendedora',1,1,7);
 
 INSERT INTO cliente (nome, cpf,idade,  data_nascimento, sexo, email, telefone, profissao, fonte_renda_id, faixa_renda_id, endereco_id) 
-VALUES ('AndrÈ Lima', '89012345678',47, TO_DATE('1977-08-30', 'YYYY-MM-DD'), 'M', 'andre.lima@example.com', '(41) 95432-1098', 'Motoboy',2,1,8);
+VALUES ('Andr√© Lima', '89012345678',47, TO_DATE('1977-08-30', 'YYYY-MM-DD'), 'M', 'andre.lima@example.com', '(41) 95432-1098', 'Motoboy',2,1,8);
 
 INSERT INTO cliente (nome, cpf,idade,  data_nascimento, sexo, email, telefone, profissao, fonte_renda_id, faixa_renda_id, endereco_id) 
-VALUES ('Tatiane Rocha', '90123456789',44, TO_DATE('1980-09-19', 'YYYY-MM-DD'), 'F', 'tatiane.rocha@example.com', '(41) 94321-0987','Professora EducaÁ„o Infantil',1,1,9);
+VALUES ('Tatiane Rocha', '90123456789',44, TO_DATE('1980-09-19', 'YYYY-MM-DD'), 'F', 'tatiane.rocha@example.com', '(41) 94321-0987','Professora Educa√ß√£o Infantil',1,1,9);
 
 
 -- Novos clientes
@@ -104,24 +103,24 @@ VALUES ('Tatiane Rocha', '90123456789',44, TO_DATE('1980-09-19', 'YYYY-MM-DD'), 
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES 
 ('Carlos Silva', '123.456.789-01', 35, TO_DATE('1989-04-15', 'YYYY-MM-DD'), 'M', 'carlos.silva@example.com', '(11) 98765-4321', 'Contador',2,2,10);
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES
-('Jo„o Pereira', '234.567.890-12', 45, TO_DATE('1979-08-10', 'YYYY-MM-DD'), 'M', 'joao.pereira@example.com', '(21) 97654-3210','TÈcnico de Suporte de T.I.', 1, 2,11);
+('Jo√£o Pereira', '234.567.890-12', 45, TO_DATE('1979-08-10', 'YYYY-MM-DD'), 'M', 'joao.pereira@example.com', '(21) 97654-3210','T√©cnico de Suporte de T.I.', 1, 2,11);
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES
-('Paulo Souza', '345.678.901-23', 50, TO_DATE('1974-05-25', 'YYYY-MM-DD'), 'M', 'paulo.souza@example.com', '(31) 96543-2109', 'Professor do Ensino MÈdio', 1,2,12);
+('Paulo Souza', '345.678.901-23', 50, TO_DATE('1974-05-25', 'YYYY-MM-DD'), 'M', 'paulo.souza@example.com', '(31) 96543-2109', 'Professor do Ensino M√©dio', 1,2,12);
 
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES
-('Lucas Alves', '456.789.012-34', 38, TO_DATE('1986-11-20', 'YYYY-MM-DD'), 'M', 'lucas.alves@example.com', '(41) 95432-1098', 'TÈcnico Administrativo SAMU', 5,2,13);
+('Lucas Alves', '456.789.012-34', 38, TO_DATE('1986-11-20', 'YYYY-MM-DD'), 'M', 'lucas.alves@example.com', '(41) 95432-1098', 'T√©cnico Administrativo SAMU', 5,2,13);
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES
 ('Rafael Lima', '567.890.123-45', 42, TO_DATE('1982-02-28', 'YYYY-MM-DD'), 'M', 'rafael.lima@example.com', '(51) 94321-0987', 'Gerente de Mercado',1,2,14);
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES
-('Fernando Costa', '678.901.234-56', 55, TO_DATE('1969-09-15', 'YYYY-MM-DD'), 'M', 'fernando.costa@example.com', '(61) 93210-9876', 'Professor de Ensino MÈdio',21,2,15);
+('Fernando Costa', '678.901.234-56', 55, TO_DATE('1969-09-15', 'YYYY-MM-DD'), 'M', 'fernando.costa@example.com', '(61) 93210-9876', 'Professor de Ensino M√©dio',21,2,15);
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES
-('Marcos Oliveira', '789.012.345-67', 60, TO_DATE('1964-12-05', 'YYYY-MM-DD'), 'M', 'marcos.oliveira@example.com', '(71) 92109-8765', 'Motorista de Ùnibus', 21, 2,16);
+('Marcos Oliveira', '789.012.345-67', 60, TO_DATE('1964-12-05', 'YYYY-MM-DD'), 'M', 'marcos.oliveira@example.com', '(71) 92109-8765', 'Motorista de √¥nibus', 21, 2,16);
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES
-('Ricardo Martins', '890.123.456-78', 48, TO_DATE('1976-07-18', 'YYYY-MM-DD'), 'M', 'ricardo.martins@example.com', '(81) 91098-7654', 'TÈcnico de SeguranÁa do Trabalho',1,2,17);
+('Ricardo Martins', '890.123.456-78', 48, TO_DATE('1976-07-18', 'YYYY-MM-DD'), 'M', 'ricardo.martins@example.com', '(81) 91098-7654', 'T√©cnico de Seguran√ßa do Trabalho',1,2,17);
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES
 ('Ana Fernandes', '901.234.567-89', 34, TO_DATE('1990-03-22', 'YYYY-MM-DD'), 'F', 'ana.fernandes@example.com', '(91) 90987-6543', 'Assistente Adminsitrativo',5,2,18);
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES
-('Maria Santos', '012.345.678-90', 52, TO_DATE('1972-06-30', 'YYYY-MM-DD'), 'F', 'maria.santos@example.com', '(95) 89876-5432', 'Professora de EducaÁ„o B·sica',21,2,19);
+('Maria Santos', '012.345.678-90', 52, TO_DATE('1972-06-30', 'YYYY-MM-DD'), 'F', 'maria.santos@example.com', '(95) 89876-5432', 'Professora de Educa√ß√£o B√°sica',21,2,19);
 
 
 -- Populando a tabela contrato:

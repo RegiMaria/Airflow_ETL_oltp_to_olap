@@ -1,10 +1,11 @@
-<h3>How to: DAG para ETL -cliente ---> dimcliente</h3>
+<h3>How to do
+    DAG para ETL tabela cliente (database oltp_db) para dimcliente (oltp_dw)</h3>
 
-**Objetivo:**
+:heavy_check_mark:`**Objetivo:**
 
-Que todos os dias sejam extraídos os dados das tabelas relacionais da financeira, transformados e adicionados no Data Warehouse.
+Que todos os dias sejam extraídos os dados das tabelas relacionais da financeira, transformados e adicionados no Data Warehouse para futura análise.
 
-Antes de escrevermos as DAG para o ETL de cliente para dimcliente, revisamos as tabelas. Percebemos que a tabela cliente no sistema OLTP possui 12 colunas, enquanto a tabela dimcliente no sistema OLAP possui 13 colunas. 
+Antes de escrevermos as DAG para o ETL de cliente para dimcliente, revisamos as tabelas. Percebemos que a tabela cliente no sistema OLTP possui 12 colunas, enquanto a tabela dimcliente no sistema OLAP possui 13 colunas, revisamos o datatype de cada uma também. 
 
 | Colunas tabela cliente (OLTP) | Colunas tabela dimcliente (OLAP) |
 | ----------------------------- | -------------------------------- |
@@ -33,13 +34,13 @@ O erro **UndefinedColunm** indica que a consulta tentou acessar uma coluna que n
 
 Precisamos decidir como lidar isso,com chaves naturais, estrangeiras e chaves substitutas (surrogate keys) durante a transformação. 
 
-Veja a dag que gerou  o erro aqui.
+:pushpin:Veja a DAG que gerou  o erro aqui.
 
 Diante disso podemos:
 
-Manter as chaves naturais nas tabelas dimensionais junto com as chaves substitutas. Permitindo que as chaves substitutas sejam usadas para operações internas do DW e as chaves naturais para integrações e análises no Power BI.
+:small_orange_diamond:Manter as chaves naturais nas tabelas dimensionais junto com as chaves substitutas. Permitindo que as chaves substitutas sejam usadas para operações internas do DW e as chaves naturais para integrações e análises no Power BI.
 
-Remover as chaves naturais e substituir elas por chaves substitutas nas tabelas dimensionais. No entanto, a ausência das chaves naturais podem dificultar a integração com fontes que precisam usar os identificadores únicos das tabelas relacionais.
+:small_orange_diamond:Remover as chaves naturais e substituir elas por chaves substitutas nas tabelas dimensionais. No entanto, a ausência das chaves naturais podem dificultar a integração com fontes que precisam usar os identificadores únicos das tabelas relacionais.
 
 <h3> Dicionário de dimensões </h3>
 
@@ -59,6 +60,33 @@ O dicionário pode ser construído:
 
 ![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfg0zttkULNk4AQZtr-v77T3el9LZ0k5wxCbV0xQfz3-jH2p6d8BKDPnKrRDBG84T3Rg6vl5AxmJ6gvD5QKHWObjUfhGpAlmPFuGhU51PU-Veg1KJzj0HOzv7biHEpIJzB7WOeJJBGBPYkJihPj4CvsYQHY?key=mcTeGO_pylJdcN1ITL-rTQ)
 
-Resolvido isso, voltamos para nosso ETL.
+:pushpin:Reescrevemos o script da DAG para dimcliente aqui
 
-Aqui nós reescrevemos o script da DAG com as transformações
+
+
+Pipeline:
+
+![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfElBUXqCBzse7J4Y4dBxStHclY-F0ZcBeGqNJos5EbTXg0yFSQ31Ke2MBVtO6VKD2ZJJd-64nas8K4RhjIza-yLmDxWloFg5uyqmwT8-4oIckQv2INyRZDkhlDUmXh2vTxWIrEMBc7E8KFI6lbYYVg0xV_?key=mcTeGO_pylJdcN1ITL-rTQ)
+
+Resposta no LOG da DAG:
+
+![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdL38Z2Va8yrlEWJx61aKGKPmp_ajY2cs9HBve1BDhISqKMkyyWRe0HpAjzKISBSJCQGgUw1mGJy3zP7bNjik4CJVT-EW-Qc4RSPbiQvhyc-kx0yYxfWZ8Gq-PyhJxsffKM2E2dxk1gbl9v1ntievdgj7Wm?key=mcTeGO_pylJdcN1ITL-rTQ)
+
+Embora as tarefas da DAG tenham ocorrido com sucesso e os dados tenho sido extraídos de cliente e transferidos corretamente para dimcliente em outro banco de dados, as chaves sk_ ficaram **null**. Isso aconteceu porque não carregamos os dados das dimensões auxiliares de dimcliente (sk_fonte_renda, sk_faixa_renda).
+
+![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdcMFUBldhtik7nbwrT9GUpsWzYQJkyhrsFLrgKKIcaaCI6Ggg3WwBrKRq2IUUeXFSE3nbE902-gXNwhep35DpH_d9p5M-J7j1pA9mspDNb4U4IdbeirC7TARIAx0WGDyrY2dP5ITKDy-b97fOUrjfUDQia?key=mcTeGO_pylJdcN1ITL-rTQ)
+
+Agora vamos colocar **verificações pra existência de dados como ValueErro**.
+
+Vamos criar o fluxo de trabalho para transferir os dados das tabelas fonte_renda e faixa_renda no sistema OLTP para o sistema OLAP. 
+
+:pushpin:Aqui podemos ver o How to do ETL_dimfonterenda_dimfaixarenda
+
+
+
+Com os dados dessas tabelas dimensionais inserido poderemos refazer a transferência de dados entre as tabelas cliente e dimcliente.
+
+
+
+
+

@@ -1,5 +1,5 @@
 CREATE TABLE endereco (
-    idendereco NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY NOT NULL,
+    idendereco SERIAL PRIMARY KEY NOT NULL,
     cep VARCHAR2(20),
     rua VARCHAR2(100) NOT NULL,
     numero NUMBER NOT NULL,
@@ -10,13 +10,13 @@ CREATE TABLE endereco (
 
 
 CREATE TABLE fonte_renda (
-    idfonte_renda NUMBER GENERATED AS IDENTITY PRIMARY KEY,
-    descricao VARCHAR2(100) NOT NULL
+    idfonte_renda SERIAL PRIMARY KEY,
+    descricao VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE faixa_renda (
-    idfaixa_renda NUMBER GENERATED AS IDENTITY PRIMARY KEY,
-    descricao VARCHAR2(100) NOT NULL
+    idfaixa_renda SERIAL PRIMARY KEY,
+    descricao VARCHAR(100) NOT NULL
 );
 
 

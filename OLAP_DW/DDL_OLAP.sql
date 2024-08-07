@@ -11,13 +11,11 @@ CREATE TABLE dimendereco (
     
 );
 
---DimFonteRenda:
 CREATE TABLE dimfonterenda (
     sk_fonte_renda SERIAL PRIMARY KEY,
     idfonte_renda INTEGER NOT NULL,
     descricao VARCHAR(100)
 );
-
 
 CREATE TABLE dimfaixarenda (
     sk_faixa_renda SERIAL PRIMARY KEY,
