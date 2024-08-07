@@ -51,11 +51,11 @@ Para documentar o mapeamento entre as chaves criamos um dicionário de dimensõe
 
 O dicionário pode ser construído:
 
-Numa planilha
+:pushpin:[Numa planilha](DAG/data/dicionario_dimensoes.csv)
 
 ![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdJBWh6uod3fkRwGw-67y9qyfnsw0OXh6T8InQsyVZPDo8YcaRgaWhF6aDYSNpi3IO6ibCb5zzMm12rVLYZos1Vj_TJnGNNRqG6SPUxAdapw11olO-oS8V_-CjA2BKCC6fi9FfKs9-Y0Mwfrwfongw0PrrE?key=mcTeGO_pylJdcN1ITL-rTQ)
 
-No banco de dados
+:pushpin:[No banco de dados](DAG/sql/dicionario_dimensoes.sql)
 
 ![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfg0zttkULNk4AQZtr-v77T3el9LZ0k5wxCbV0xQfz3-jH2p6d8BKDPnKrRDBG84T3Rg6vl5AxmJ6gvD5QKHWObjUfhGpAlmPFuGhU51PU-Veg1KJzj0HOzv7biHEpIJzB7WOeJJBGBPYkJihPj4CvsYQHY?key=mcTeGO_pylJdcN1ITL-rTQ)
 
