@@ -72,7 +72,7 @@ CREATE TABLE pagamento (
     data_vencimento DATE NOT NULL,
     data_pagamento DATE NULL,
     status_pagamento VARCHAR2(20) NOT NULL,
-    dias_atraso NUMBER, -- Número de dias de atraso
+    dias_atraso NUMBER, -- NÃºmero de dias de atraso
     juros_mora NUMBER(10, 2), -- Juros de mora aplicados
     multa_atraso NUMBER(10, 2), -- Multa por atraso
     valor_final NUMBER(10, 2), -- Valor total da parcela com juros e multa

@@ -1,0 +1,6 @@
+"id","tabela_oltp","coluna_oltp","tabela_olap","coluna_olap","descricao"
+1,"cliente","idcliente","dimcliente","idcliente","Chave natural da tabela OLTP."
+2,"cliente","idcliente","dimcliente","sk_cliente","Chave substituta da tabela OLAP."
+3,"cliente","endereco_id","dimcliente","sk_endereco","Mapeamento de endereco_id para sk_endereco na dimensão dimendereco."
+4,"cliente","fonte_renda_id","dimcliente","sk_fonte_renda","Mapeamento de fonte_renda_id para sk_fonte_renda na dimensão dimfonterenda."
+5,"cliente","faixa_renda_id","dimcliente","sk_faixa_renda","Mapeamento de faixa_renda_id para sk_faixa_renda na dimensão dimfaixarenda."
