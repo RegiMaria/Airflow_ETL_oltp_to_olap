@@ -73,8 +73,8 @@ CREATE TABLE DimProduto (
     idproduto INTEGER NOT NULL,
     nome_produto VARCHAR(255) NOT NULL,
     tipo_produto VARCHAR(100) NOT NULL,
-    valor_minimo NUMERIC(10, 2) NOT NULL,
-    valor_maximo NUMERIC(10, 2) NOT NULL,
+    valor_minimo DECIMAL(10, 2) NOT NULL,
+    valor_maximo DECIMAL (10, 2) NOT NULL,
     numero_parcelas_maximo INTEGER NOT NULL,
     condicoes_especiais TEXT
 );
@@ -83,14 +83,14 @@ CREATE TABLE DimProduto (
 CREATE TABLE DimPagamento (
     sk_pagamento SERIAL PRIMARY KEY,
     numero_parcela INTEGER NOT NULL,
-    valor_parcela NUMERIC(10, 2) NOT NULL,
+    valor_parcela DECIMAL (10, 2) NOT NULL,
     data_vencimento DATE NOT NULL,
     data_pagamento DATE,
     status_pagamento VARCHAR(20) NOT NULL,
     dias_atraso INTEGER, -- Número de dias de atraso
-    juros_mora NUMERIC(10, 2), -- Juros de mora aplicados
-    multa_atraso NUMERIC(10, 2), -- Multa por atraso
-    valor_final NUMERIC(10, 2), -- Valor total da parcela com juros e multa
+    juros_mora DECIMAL (10, 2), -- Juros de mora aplicados
+    multa_atraso DECIMAL(10, 2), -- Multa por atraso
+    valor_final DECIMAL(10, 2), -- Valor total da parcela com juros e multa
     sk_contrato INTEGER NOT NULL,
     CONSTRAINT fk_contrato_pagamento FOREIGN KEY (sk_contrato) REFERENCES DimContrato(sk_contrato)
 );
@@ -100,9 +100,9 @@ CREATE TABLE DimContrato (
     sk_contrato SERIAL PRIMARY KEY,
     idcontrato INTEGER NOT NULL,
     codigo_contrato VARCHAR(200) UNIQUE NOT NULL,
-    valor_emprestimo NUMERIC(10, 2) NOT NULL,
+    valor_emprestimo DECIMAL (10, 2) NOT NULL,
     numero_parcelas INTEGER NOT NULL,
-    taxa_juros NUMERIC(5, 2) NOT NULL,
+    taxa_juros DECIMAL (5, 2) NOT NULL,
     data_contratacao DATE NOT NULL,
     status_contrato VARCHAR(20) NOT NULL,
     sk_cliente INTEGER NOT NULL,
@@ -117,7 +117,7 @@ CREATE TABLE FatoResumoPagamentosAtrasados (
     ano INTEGER,
     mes INTEGER,
     total_pagamentos_atrasados INTEGER,
-    valor_total_atrasado NUMERIC(10, 2),
+    valor_total_atrasado DECIMAL (10, 2),
     tempo_id INTEGER,
     cliente_id INTEGER, 
     contrato_id INTEGER, 
