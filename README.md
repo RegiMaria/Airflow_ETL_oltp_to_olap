@@ -12,7 +12,9 @@ Desenvolver DAG para automatizar extração de dados de tabelas OLTP , transform
 
 - Explorar mapeamento de dados;
 
-- Estudar estrutura da DAG.
+- Estudar estrutura da DAG;
+
+- Lidar com exceções;
 
 <table style="border: 1px solid black; border-collapse: collapse;">
   <tr>
@@ -89,9 +91,50 @@ A princípio, por razão de aprendizado, vamos fazer uma DAG de extração para 
 
 
 
+<h3> Etapas </h3>
+
+---------------------------------------------------
+
+1. Criar e popular as tabelas relacionas do sistema OLTP
+
 :pushpin:[Criando_e_populando_tabelas_relacionais](OLTP_DB)
+
+2. Criar uma conexão teste;
 
 :pushpin:[Teste_conexão_airflow_postgresql](teste)
 
+3. DAG de teste de conexão;
+
 :pushpin:[How_to](HOW_TO)
 
+4. ETL da Tabela cliente para dimcliente;
+
+   :pushpin:
+
+5. ETL das tabelas fonte_renda, faixa_renda, endereco, produto, contrato, pagamento do sistema OLTP para dimfonterenda, dimfaixarenda,dimproduto,dimendereco,dimcontrato,dimpagamento do sistema OLAP.
+
+- endereco - dimendereco;
+
+:pushpin:ETL_from_endereco_to_dim​endereco
+
+- faixa_renda e fonte_renda - dimfairenda e dimfonterenda;
+
+:pushpin:
+
+- produto - dimproduto
+
+  
+
+- contrato-dimcontrato
+
+  
+
+- pagamento-dimpagamento
+
+
+
+**Considerações:**
+
+:heavy_check_mark:O objetivo dessa tarefa **NÃO** foi estudar **REQUISITOS E REGRAS DE NEGÓCIO**, mas sentimos falta de ter definido isso antes da construção do ETL. O Airflow é para orquestrar fluxo de trabalho, lógicas críticas para o negócio devem ser definidas diretamente no banco de dados, onde a manutenção é mais fácil.  Quando experimentamos escrever lógica de negócio na etapa de transformação, por exemplo, a carga dos dados se mostrou mais demorada. E estamos lidando com um grupo pequeno de dados.
+
+:heavy_check_mark: A etapa de visualização dos dados será feita em outro repositório.

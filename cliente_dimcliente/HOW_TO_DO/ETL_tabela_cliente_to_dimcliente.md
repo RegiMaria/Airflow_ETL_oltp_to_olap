@@ -1,11 +1,12 @@
-<h3>How to do
-    DAG para ETL tabela cliente (database oltp_db) para dimcliente (oltp_dw)</h3>
+<h3>How to do: </h3>
 
-:heavy_check_mark:`**Objetivo:**
+<h3>  ETL da tabela cliente (database oltp_db) para dimcliente (oltp_dw) </h3>
+
+:heavy_check_mark:**Objetivo:**
 
 Que todos os dias sejam extraídos os dados das tabelas relacionais da financeira, transformados e adicionados no Data Warehouse para futura análise.
 
-Antes de escrevermos as DAG para o ETL de cliente para dimcliente, revisamos as tabelas. Percebemos que a tabela cliente no sistema OLTP possui 12 colunas, enquanto a tabela dimcliente no sistema OLAP possui 13 colunas, revisamos o datatype de cada uma também. 
+Antes de escrevermos as DAG para o ETL de cliente para dimcliente, revisamos as tabelas. Percebemos que a tabela cliente no sistema OLTP possui 12 colunas, enquanto a tabela dimcliente no sistema OLAP possui 13 colunas, revisamos o `datatype` de cada uma também. 
 
 | Colunas tabela cliente (OLTP) | Colunas tabela dimcliente (OLAP) |
 | ----------------------------- | -------------------------------- |
@@ -34,8 +35,6 @@ O erro **UndefinedColunm** indica que a consulta tentou acessar uma coluna que n
 
 Precisamos decidir como lidar isso,com chaves naturais, estrangeiras e chaves substitutas (surrogate keys) durante a transformação. 
 
-:pushpin:Veja a DAG que gerou  o erro aqui.
-
 Diante disso podemos:
 
 :small_orange_diamond:Manter as chaves naturais nas tabelas dimensionais junto com as chaves substitutas. Permitindo que as chaves substitutas sejam usadas para operações internas do DW e as chaves naturais para integrações e análises no Power BI.
@@ -60,9 +59,11 @@ O dicionário pode ser construído:
 
 ![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfg0zttkULNk4AQZtr-v77T3el9LZ0k5wxCbV0xQfz3-jH2p6d8BKDPnKrRDBG84T3Rg6vl5AxmJ6gvD5QKHWObjUfhGpAlmPFuGhU51PU-Veg1KJzj0HOzv7biHEpIJzB7WOeJJBGBPYkJihPj4CvsYQHY?key=mcTeGO_pylJdcN1ITL-rTQ)
 
-:pushpin:Reescrevemos o script da DAG para dimcliente aqui
 
 
+Reescrevemos o ET de cliente para dimcliente.
+
+:pushpin:O script da DAG para dimcliente aqui
 
 Pipeline:
 
@@ -84,9 +85,144 @@ Vamos criar o fluxo de trabalho para transferir os dados das tabelas fonte_renda
 
 
 
-Com os dados dessas tabelas dimensionais inserido poderemos refazer a transferência de dados entre as tabelas cliente e dimcliente.
+Com os dados dessas tabelas dimensionais inserido poderemos refazer a transferência de dados entre as tabelas cliente e dimcliente. Após realizamos o ETL das tabelas fonte_renda e faixa_renda tentamos novamente fazer o ETL da tabela cliente para dimcliente. Agora os dados que estavam **null**  estão apontando para as sk_* das respectivas tabelas dimensionais.
+
+![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcPqrYV7mAIqUwIGCcYfVSZVi_t1gJK7PvTohtxf6013UeSzoKTpGTqWeHLUMns7yII_iVumaD2rDa9JNEVikzEN9aAaOcf3dTGIZyuQ6_hnEuJQSHHipuhW5Brgm5QxUyj2o70IgJoKf_XsJMrdmypR41U?key=mcTeGO_pylJdcN1ITL-rTQ)
+
+**Extração:**
+
+A parte da extração fizemos como nas tabelas anteriores:
+
+Fizemos a conexão com o banco de dados, usamos e SQL pra selecionar a tabela de origem dos dados (cliente no database oltp_db) e, com o método `get_pandas_df`, salvamos na variável **df**. Em seguida enviamos para o `xcom` com a chave `data` e como valor os dados de `df`.
+
+```def `extract(kwargs):```
+
+``` oltp_hook = PostgresHook(postgres_conn_id='oltp_db') ``` 
+
+```sql = 'SELECT * FROM cliente'   ```
+
+```df = oltp_hook.get_pandas_df(sql)```
+
+```   kwargs['ti'].xcom_push(key='data', value=df)```
 
 
 
 
 
+**Transformação:**
+
+Na parte de transformação realizamos o mapeamento. O mapeamento garante que as chaves naturais apontem para as sk.
+
+Com `xcom_pull` capturamos todos os dados de `data`.
+
+Adicionamos um `ValueErro` pra não correr o que aconteceu antes, subir campos vazios sem q a gente perceba.
+
+``` if df is None:``` 
+
+``` raise ValueError("Nenhum dado foi extraído na etapa anterior.")```
+
+
+
+Como vamos precisar consultar as tabelas dimensionais pra fazer o mapeamento das chaves, escrevemos a conexão do `engineSQLAlchemy` nessa etapa. Normalmente usamos ela na etapa de carga para escrever os dados na tabele de destino.
+
+
+
+```olap_hook = PostgresHook(postgres_conn_id='olap_dw')```
+
+```engine = olap_hook.get_sqlalchemy_engine() ```
+
+
+
+
+
+Agora vamos escrever o mapeamento. Para isso é preciso revisar e conhecer os campos da tabela de destino e de origem.
+
+No dicionário `oltp_dim_mapping` a gente escreve o nome da tabela no sistema OLTP e como valor o nome da tabela no sistema OLTP.
+
+```oltp_to_dim_mapping = {``
+
+``'endereco': 'dimendereco',``
+
+``’fonte_renda': 'dimfonterenda',``
+
+``'faixa_renda': 'dimfaixarenda'``
+
+``}``
+
+
+
+
+
+Para cada tabela da minha lista de tabelas OLTP, vamos consultar uma tabela no sistema OLAP correspondente e agora vamos obter as SK das tabelas dimensionais e substituir pelos ids das tabelas relacionais. Vamos usar `merge` do pandas e vamos usar um loop pra percorrer as tabelas.
+
+``` 
+       for oltp_table, dim_table in oltp_to_dim_mapping.items():
+       dim_df = pd.read_sql(f'SELECT id{oltp_table} as id_{oltp_table}, sk_{oltp_table} FROM {dim_table}', engine)
+        
+        df = df.merge(dim_df, left_on=f'{oltp_table}_id', right_on=f'id_{oltp_table}', how='left')
+        
+        df = df.drop(columns=[f'{oltp_table}_id'])``
+```
+
+
+
+Na sintaxe da função `pd.read-sql (sql_quey, con)` , indicamos a consulta e a conexão com o banco de dados, que no caso é `engine` definida anteriormente. 
+
+Enviamos para o `xcom_push`com a chave `transfomed_data` e com o valor dos dados em `df`.
+
+
+
+**Carregamento:**
+
+No carregamento, capturamos tudo de `transfomed_data` com `xcom_pull`, inserimos novamente a verificação ValueErro e definimos a engineSQLAlchemy para escrever os dados na tabela de destino. 
+
+A função `df_.to_sql` do pandas escreve um DataFrame diretamente na tabela no banco de dados. Definindo o nome da tabela, a conexão, a condição e se o DataFrame vai ter uma coluna pra index. 
+
+```
+df.to_sql(nome,con,index)
+```
+
+```
+ df.to_sql('dimcliente', engine, if_exists='append', index=False)
+```
+
+
+
+**Tarefas:**
+
+```
+extract_task = PythonOperator( task_id='extract',
+ python_callable=extract,
+ dag=dag)
+```
+
+
+
+```
+transform_task = PythonOperator( 
+ task_id='transform',
+ python_callable=transform,
+ dag=dag
+)
+```
+
+ 
+
+```load_task = PythonOperator( task_id = 'load', 
+load_task = PythonOperator( 
+task_id = 'load',
+python_callable=load,
+provide_context=True,
+dag=dag
+)
+```
+
+
+
+**Ordem das tarefas:**
+
+``extract_task >> transform_task >> load_task `` 
+
+
+
+:pushpin:A DAG da tarefa está aqui

@@ -122,6 +122,29 @@ INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, p
 INSERT INTO cliente (nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao,fonte_renda_id, faixa_renda_id, endereco_id) VALUES
 ('Maria Santos', '012.345.678-90', 52, TO_DATE('1972-06-30', 'YYYY-MM-DD'), 'F', 'maria.santos@example.com', '(95) 89876-5432', 'Professora de Educação Básica',21,2,19);
 
+--clientes atualizados:
+
+
+INSERT INTO cliente (idcliente, nome, cpf, idade, data_nascimento, sexo, email, telefone, profissao, fonte_renda_id, faixa_renda_id, endereco_id) VALUES
+(183, 'Carla Oliveira', '234.567.890-19', 34, '1990-02-25', 'F', 'carla.oliveira@example.com', '(41) 97654-3210', 'Vendedora', 1, 1, 61),
+(184, 'João da Silva', '123.456.789-02', 37, '1985-01-15', 'M', 'joao.silva@example.com', '(41) 98765-4321', 'Pintor', 2, 1, 62),
+(185, 'Paula Santos', '345.678.901-23', 36, '1988-03-30', 'F', 'paula.santos@example.com', '(41) 96543-2109', 'Zeladora', 1, 1, 63),
+(186, 'Ana Costa', '456.789.012-94', 29, '1995-04-10', 'F', 'ana.costa@example.com', '(41) 95432-1098', 'Diarista', 2, 2, 64),
+(187, 'Suelem Magalhães', '567.890.123-45', 45, '1979-05-22', 'F', 'su.maga@example.com', '(41) 98765-6789', 'Auxiliar de serviços gerais', 1, 1, 65),
+(188, 'Marcelo Fernandes', '678.901.234-56', 41, '1981-06-13', 'M', 'marcelo.fernandes@example.com', '(41) 97654-3210', 'Eletricista', 2, 2, 66),
+(189, 'Juliana Pereira', '789.012.345-67', 41, '1983-07-08', 'F', 'juliana.pereira@example.com', '(41) 96543-2109', 'Vendedora', 1, 1, 67),
+(190, 'André Lima', '890.123.456-78', 47, '1977-08-30', 'M', 'andre.lima@example.com', '(41) 95432-1098', 'Motoboy', 2, 1, 68),
+(191, 'Tatiane Rocha', '901.234.577-89', 44, '1980-09-19', 'F', 'tatiane.rocha@example.com', '(41) 94321-0987', 'Professora Educação Infantil', 5, 1, 69),
+(192, 'Carlos Silva', '123.456.789-01', 35, '1989-04-15', 'M', 'carlos.silva@example.com', '(11) 98765-4321', 'Contador', 2, 2, 70),
+(193, 'João Pereira', '234.567.890-12', 45, '1979-08-10', 'M', 'joao.pereira@example.com', '(21) 97654-3210', 'Técnico de Suporte de T.I.', 1, 2, 71),
+(195, 'Lucas Alves', '456.789.012-34', 38, '1986-11-20', 'M', 'lucas.alves@example.com', '(41) 95432-1098', 'Técnico Administrativo SAMU', 5, 2, 73),
+(196, 'Rafael Lima', '567.890.123-55', 42, '1982-02-28', 'M', 'rafael.lima@example.com', '(51) 94321-0987', 'Gerente de Mercado', 1, 2, 74),
+(197, 'Fernando Costa', '678.901.234-86', 55, '1969-09-15', 'M', 'fernando.costa@example.com', '(61) 93210-9876', 'Professor de Ensino Médio', 6, 2, 75),
+(198, 'Marcos Oliveira', '789.012.345-66', 60, '1964-12-05', 'M', 'marcos.oliveira@example.com', '(71) 92109-8765', 'Motorista de ônibus', 4, 2, 76),
+(199, 'Ricardo Martins', '890.123.456-38', 48, '1976-07-18', 'M', 'ricardo.martins@example.com', '(81) 91098-7654', 'Técnico de Segurança do Trabalho', 1, 2, 77),
+(200, 'Ana Fernandes', '901.234.567-89', 34, '1990-03-22', 'F', 'ana.fernandes@example.com', '(91) 90987-6543', 'Assistente Administrativo', 5, 2, 78),
+(201, 'Maria Santos', '012.345.678-90', 52, '1972-06-30', 'F', 'maria.santos@example.com', '(95) 89876-5432', 'Professora de Educação Básica', 4, 2, 79),
+(194, 'Paulo Souza', '345.678.901-63', 50, '1974-05-25', 'M', 'paulo.souza@example.com', '(31) 96543-2109', 'Professor do Ensino Médio', 6, 2, 72);
 
 -- Populando a tabela contrato:
 --Cliente ID:1
