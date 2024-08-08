@@ -176,6 +176,6 @@ Fazemos as mesmas etapas para a tabela faixa_renda.
 
 
 
-:pushpin:[Escrevemos o script dessa DAG aqui](DAG/DAG/ETL_dimfonterenda_faixarenda.py)
+:pushpin:[Escrevemos o script dessa DAG aqui](DAG/ETL_dimfonterenda_faixarenda.py)
 
 :pushpin: Pipeline dimcliente pode ser encontrado aqui
