@@ -123,13 +123,15 @@ A princípio, por razão de aprendizado, vamos fazer uma DAG de extração para 
 
 - produto - dimproduto
 
-  
+:pushpin:
 
 - contrato-dimcontrato
 
-  
+:pushpin:
 
 - pagamento-dimpagamento
+
+:pushpin:
 
 
 
