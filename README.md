@@ -137,6 +137,10 @@ A princípio, por razão de aprendizado, vamos fazer uma DAG de extração para 
 
 **Considerações:**
 
-:heavy_check_mark:O objetivo dessa tarefa **NÃO** foi estudar **REQUISITOS E REGRAS DE NEGÓCIO**, mas sentimos falta de ter definido isso antes da construção do ETL. O Airflow é para orquestrar fluxo de trabalho, lógicas críticas para o negócio devem ser definidas diretamente no banco de dados, onde a manutenção é mais fácil.  Quando experimentamos escrever lógica de negócio na etapa de transformação, por exemplo, a carga dos dados se mostrou mais demorada. E estamos lidando com um grupo pequeno de dados.
+:heavy_check_mark:O objetivo dessa tarefa **NÃO** foi estudar **REQUISITOS E REGRAS DE NEGÓCIO**, mas sentimos falta de ter definido isso antes da construção do ETL. O Airflow é para orquestrar fluxo de trabalho, lógicas críticas para o negócio devem ser definidas diretamente no sistema ou no nosso caso no banco de dados.  Quando experimentamos escrever lógica de negócio na etapa de transformação, por exemplo, a carga dos dados se mostrou mais demorada. E estamos lidando com um grupo muito pequeno de dados.
+
+:heavy_check_mark:  As principais fontes de dados vem do sistema OLTP, então achamos importante estudar a Arquitetura do sistema relacional.
+
+:heavy_check_mark: Também revisamos e fortalecemos declarações na linguagem SQL e estudamos a escrita e o funcionamento de *triggers*, *procedures* e *functions*.
 
 :heavy_check_mark: A etapa de visualização dos dados será feita em outro repositório.
