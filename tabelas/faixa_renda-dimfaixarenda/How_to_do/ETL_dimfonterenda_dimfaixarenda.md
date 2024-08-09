@@ -1,14 +1,45 @@
-<h3>ETL de transferência de dados das tabelas faixa_renda e fonte_renda do sistema relacional para dimfaixarenda e dimfonterenda no sistema analítico </h3>
+<h3>How to do </h3>
 
 -----------------------------------------------
 
+<table style="border: 1px solid black; border-collapse: collapse;">
+  <tr>
+    <th style="border: 1px solid black; padding: 5px;">Processo</th>
+    <th style="border: 1px solid black; padding: 5px;">Tabela origem</th>
+    <th style="border: 1px solid black; padding: 5px;">Sistema origem</th>
+    <th style="border: 1px solid black; padding: 5px;">Tabela destino</th>
+    <th style="border: 1px solid black; padding: 5px;">Sistema destino</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 5px;">ETL</td>
+    <td style="border: 1px solid black; padding: 5px;">fonte_renda</td>
+    <td style="border: 1px solid black; padding: 5px;">OLTP</td>
+    <td style="border: 1px solid black; padding: 5px;">dimfonterenda</td>
+    <td style="border: 1px solid black; padding: 5px;">OLAP</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 5px;">ETL</td>
+    <td style="border: 1px solid black; padding: 5px;">faixa_renda</td>
+    <td style="border: 1px solid black; padding: 5px;">OLTP</td>
+    <td style="border: 1px solid black; padding: 5px;">dimfaixarenda</td>
+    <td style="border: 1px solid black; padding: 5px;">OLAP</td>
+  </tr>
+</table>
+
+
+:heavy_check_mark:**Objetivo:** ETL de transferência de dados das tabelas faixa_renda e fonte_renda do sistema relacional para dimfaixarenda e dimfonterenda no sistema analítico.
+
+
+
 Bom, fizemos a transferência de cliente para dimcliente e os campos com as chaves para as dimensões dimfaixarenda e dimfonterenda ficaram null. Logo, vamos realizar a transferência desses dados pra reexecutar a DAG cliente-dimcliente.
 
-A primeira DAG que escrevemos para esse ETL já consideramos o mapeamento das chaves naturais para as chaves substitutas, mas como os dados vem de uma única fonte e estamos apenas replicando os dados do sistema transacional para o Data Warehouse, vamos pela abordagem mais prática.
+A primeira DAG que escrevemos para esse ETL já consideramos o **mapeamento** das chaves naturais para as chaves substitutas, mas como os dados vem de uma única fonte e estamos apenas replicando os dados do sistema transacional para o Data Warehouse, vamos pela abordagem mais prática.
 
 Antes de iniciar a DAG vamos revisar a estrutura das tabelas e realizar as correções necessárias. Como essas no datatype.![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcTUqcJIc_7ybhbcBLz2aEqaKKeyhcnoa2Dr1qjZVu-Yi7m1ninZXixLfl1hDPxNXIjTV50qTQjL1M20hjgbF0u98Q_Ghgheol1pUF1laa7MDi2Hbdogi0ojkAFad6dNx-xtS_4CmIVM-go7G28xL9_t5ZS?key=mcTeGO_pylJdcN1ITL-rTQ)
 
 
+
+Pipeline:
 
 ![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdmo_sahNlgaK84VIDnHAlRXkNTeF_6r85cXXY2z03-dvsg65AB1DfE3HwfpeAmyq7Bo---ILeObagxuLxaA11bP5do4eBBrDz7LPSr7Fy-d9DoCsvyc_0UleDhfFSye5_q5tcu2S04zJyVbxWQHVXJPYaW?key=mcTeGO_pylJdcN1ITL-rTQ)
 
@@ -62,13 +93,13 @@ Enviamos tudo que está armazenado em **data** para o `xcom`:
 
 Função de transformação **separada** para cada tabela:
 
-Tanto os dados de faixa_renda como fonte_renda não passaram por transformações uma vez que são conhecidos, imutáveis, poucos e para estudo.
+Tanto os dados de faixa_renda como fonte_renda não passaram por transformações uma vez que são conhecidos, imutáveis, poucos e para estudo. O processo de transformação poderia ser uma tarefa apenas, mas recolvemos fazer task separadas caso precisasse de transformações diferentes.
 
-Recuperamos os dados do xcom:
+Recuperamos os dados do **xcom_pull**:
 
 `data = ti.xcom_pull(key='data', task_ids='extract_data')`
 
-Colocamos uma **verificação**(ValueErro) pra vê se os dados existem. Para não acontecer como na outro fluxo de transferir campos null. 
+Colocamos uma  **verificação**(ValueErro)  pra vê se os dados existem. Para não acontecer como na outro fluxo de transferir campos null. 
 
 A variável **data** contém os dados definidos na etapa de extração, se retornar `None` signifca que **nenhum** dado foi extraído.
 
@@ -86,7 +117,7 @@ Fazemos o mesmo com os dados de faixa_renda.
 
 Função para carregar os dados nas respectivas tabelas:
 
-Nessa etapa, também construímos task separadas, mas ao invés de usar  `PostgresHook`, para interagir com o banco de dados (no caso foi usado pra leitura) usamos a `engine SQLAlchemy` para escrever os dados nas tabelas do database olap_dw.
+Nessa etapa, também construímos task separadas, mas ao invés de usar  `PostgresHook`, para interagir com o banco de dados (no caso foi usado pra leitura) usamos a `engine SQLAlchemy` para escrever os dados nas tabelas do **database olap_dw**.
 
 **Tabela fonte_renda:**
 
@@ -173,6 +204,16 @@ Fazemos as mesmas etapas para a tabela faixa_renda.
 `extract_task >> transform_fonte_renda_task >> load_fonte_renda_task`
 
 `extract_task >> transform_faixa_renda_task >> load_faixa_renda_task `
+
+
+
+
+
+**Resultado:**
+
+
+
+![img](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcDjgy1lDogvgEIi7c6yu8lmoMRFKjFlgqd-WT2pgyXQBOSnwrY7eYEVdishO5rhVIX-o7u2zjZrCbPslSShr6Z-26TANyd6OW5JKdzmA9PYkilxBv9DbcZWhdC7_0bZ84Vff2ImHiCC9M2NoPy6CYomgax?key=mcTeGO_pylJdcN1ITL-rTQ)
 
 
 

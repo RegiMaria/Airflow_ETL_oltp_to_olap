@@ -1,12 +1,29 @@
 <h3>How to do: </h3>
 
-<h3>  ETL da tabela cliente (database oltp_db) para dimcliente (oltp_dw) </h3>
+<table style="border: 1px solid black; border-collapse: collapse;">
+  <tr>
+    <th style="border: 1px solid black; padding: 5px;">Processo</th>
+    <th style="border: 1px solid black; padding: 5px;">Tabela origem</th>
+    <th style="border: 1px solid black; padding: 5px;">Sistema origem</th>
+    <th style="border: 1px solid black; padding: 5px;">Tabela destino</th>
+    <th style="border: 1px solid black; padding: 5px;">Sistema destino</th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 5px;">ETL</td>
+    <td style="border: 1px solid black; padding: 5px;">cliente</td>
+    <td style="border: 1px solid black; padding: 5px;">OLTP</td>
+    <td style="border: 1px solid black; padding: 5px;">dimcliente</td>
+    <td style="border: 1px solid black; padding: 5px;">OLAP</td>
+  </tr>
+</table>
+
+
 
 :heavy_check_mark:**Objetivo:**
 
 Que todos os dias sejam extraídos os dados das tabelas relacionais da financeira, transformados e adicionados no Data Warehouse para futura análise.
 
-Antes de escrevermos as DAG para o ETL de cliente para dimcliente, revisamos as tabelas. Percebemos que a tabela cliente no sistema OLTP possui 12 colunas, enquanto a tabela dimcliente no sistema OLAP possui 13 colunas, revisamos o `datatype` de cada uma também. 
+Antes de escrevermos as DAG para o ETL de cliente para dimcliente, revisamos as tabelas. Revisamos o `datatype` ,  os nomes dos campos e quantidade de colunas de cada uma. 
 
 | Colunas tabela cliente (OLTP) | Colunas tabela dimcliente (OLAP) |
 | ----------------------------- | -------------------------------- |
@@ -25,7 +42,7 @@ Antes de escrevermos as DAG para o ETL de cliente para dimcliente, revisamos as 
 |                               | sk_faixa_renda                   |
 | **Total de colunas: 12**      | **Total de colunas: 13**         |
 
-Escrevemos a DAG e tentamos fazer o ETL mesmo assim e recebemos o erro:
+Escrevemos a DAG e tentamos fazer o ETL.
 
 No log da tarefa no airflow:
 
@@ -61,7 +78,7 @@ O dicionário pode ser construído:
 
 
 
-Reescrevemos o ET de cliente para dimcliente.
+Reescrevemos o ETL de cliente para dimcliente.
 
 :pushpin:O script da DAG para dimcliente aqui
 
@@ -91,9 +108,7 @@ Com os dados dessas tabelas dimensionais inserido poderemos refazer a transferê
 
 **Extração:**
 
-A parte da extração fizemos como nas tabelas anteriores:
-
-Fizemos a conexão com o banco de dados, usamos e SQL pra selecionar a tabela de origem dos dados (cliente no database oltp_db) e, com o método `get_pandas_df`, salvamos na variável **df**. Em seguida enviamos para o `xcom` com a chave `data` e como valor os dados de `df`.
+Fizemos a conexão com o banco de dados, usamos e SQL pra selecionar a tabela de origem dos dados (cliente no database oltp_db) e, com o método `get_pandas_df`, salvamos na variável `df`. Em seguida enviamos para o `xcom` com a chave `data` e como valor todos dados de `df`.
 
 ```def `extract(kwargs):```
 
@@ -123,9 +138,7 @@ Adicionamos um `ValueErro` pra não correr o que aconteceu antes, subir campos v
 
 
 
-Como vamos precisar consultar as tabelas dimensionais pra fazer o mapeamento das chaves, escrevemos a conexão do `engineSQLAlchemy` nessa etapa. Normalmente usamos ela na etapa de carga para escrever os dados na tabele de destino.
-
-
+Como vamos precisar consultar as tabelas dimensionais pra fazer o mapeamento das chaves, escrevemos a conexão do `engineSQLAlchemy` nessa etapa. Normalmente usamos ela na etapa de carga para escrever os dados na tabela de destino.
 
 ```olap_hook = PostgresHook(postgres_conn_id='olap_dw')```
 
@@ -135,7 +148,7 @@ Como vamos precisar consultar as tabelas dimensionais pra fazer o mapeamento das
 
 
 
-Agora vamos escrever o mapeamento. Para isso é preciso revisar e conhecer os campos da tabela de destino e de origem.
+Agora vamos escrever o **mapeamento**. Para isso é preciso revisar e conhecer os campos da tabela de destino e de origem.
 
 No dicionário `oltp_dim_mapping` a gente escreve o nome da tabela no sistema OLTP e como valor o nome da tabela no sistema OLTP.
 
@@ -166,7 +179,7 @@ Para cada tabela da minha lista de tabelas OLTP, vamos consultar uma tabela no s
 
 
 
-Na sintaxe da função `pd.read-sql (sql_quey, con)` , indicamos a consulta e a conexão com o banco de dados, que no caso é `engine` definida anteriormente. 
+Na sintaxe da função `pd.read-sql (sql_query, con)` , indicamos a consulta e a conexão com o banco de dados, que no caso é `engine` definida anteriormente. 
 
 Enviamos para o `xcom_push`com a chave `transfomed_data` e com o valor dos dados em `df`.
 
