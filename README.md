@@ -139,7 +139,7 @@ A princípio, por razão de aprendizado, vamos fazer uma DAG de extração para 
 
 4. ETL da Tabela cliente para dimcliente;
 
-   :pushpin:
+   :pushpin: [ETL_from_cliente_to_dimcliente](https://github.com/RegiMaria/Airflow_ETL_oltp_to_olap/tree/main/tabelas/cliente_dimcliente)
 
 5. ETL das tabelas fonte_renda, faixa_renda, endereco, produto, contrato, pagamento do sistema OLTP para dimfonterenda, dimfaixarenda,dimproduto,dimendereco,dimcontrato,dimpagamento do sistema OLAP.
 
@@ -149,11 +149,11 @@ A princípio, por razão de aprendizado, vamos fazer uma DAG de extração para 
 
 - faixa_renda e fonte_renda - dimfairenda e dimfonterenda;
 
-:pushpin:
+:pushpin:[ETL_faixa_renda_to_dimfaixarenda](https://github.com/RegiMaria/Airflow_ETL_oltp_to_olap/tree/main/tabelas/faixa_renda-dimfaixarenda)
 
 - produto - dimproduto
 
-:pushpin:
+:pushpin:[ETL_produto-dimproduto](https://github.com/RegiMaria/Data_Warehouse_nomenclatura)
 
 - contrato-dimcontrato
 
