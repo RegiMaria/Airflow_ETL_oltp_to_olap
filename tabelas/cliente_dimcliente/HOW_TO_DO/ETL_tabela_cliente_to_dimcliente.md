@@ -110,7 +110,7 @@ Com os dados dessas tabelas dimensionais inserido poderemos refazer a transferê
 
 Fizemos a conexão com o banco de dados, usamos e SQL pra selecionar a tabela de origem dos dados (cliente no database oltp_db) e, com o método `get_pandas_df`, salvamos na variável `df`. Em seguida enviamos para o `xcom` com a chave `data` e como valor todos dados de `df`.
 
-```def `extract(kwargs):```
+```def extract(kwargs):```
 
 ``` oltp_hook = PostgresHook(postgres_conn_id='oltp_db') ``` 
 
@@ -152,7 +152,7 @@ Agora vamos escrever o **mapeamento**. Para isso é preciso revisar e conhecer o
 
 No dicionário `oltp_dim_mapping` a gente escreve o nome da tabela no sistema OLTP e como valor o nome da tabela no sistema OLTP.
 
-```oltp_to_dim_mapping = {``
+``oltp_to_dim_mapping =  {``
 
 ``'endereco': 'dimendereco',``
 

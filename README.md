@@ -4,7 +4,7 @@
 
 :heavy_check_mark:**Objetivo geral:**
 
-Desenvolver DAG para automatizar extração de dados de tabelas OLTP , transformar e carregar em tabelas OLAP de Data Warehouse.
+Desenvolver DAG para automatizar extração de dados de tabelas OLTP , transformar e carregar em tabelas OLAP de Data Warehouse. Usaremos métodos e funções do Pandas para as operações de ETL.
 
 :heavy_check_mark:**Objetivos específicos:**
 
@@ -15,6 +15,35 @@ Desenvolver DAG para automatizar extração de dados de tabelas OLTP , transform
 - Estudar estrutura da DAG;
 
 - Lidar com exceções;
+
+
+
+<h4> WORKFLOW RESUMIDO: </h4>
+
+---------------------------------------------
+
+<table style="border: 1px solid black; border-collapse: collapse;">
+  <tr>
+    <td style="border: 1px solid black; padding: 5px;"><b>1. Design de Esquema OLTP:</b> Projetar o banco de dados transacional para uma organização financeira.</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 5px;"> <b>2. Implementação OLTP:</b> Criação das tabelas e outros objetos no banco de dados transacional.</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 5px;"><b>3. Design de Esquema DW:</b> Projetar o esquema do Data Warehouse, incluindo tabelas dimensionais e de fato.</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 5px;"><b>4. ETL:</b> Implementar os processos ETL para mover dados do OLTP para o DW. Usar pandas, automatizar ETL com Airflow.</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 5px;"><b>5.População do DW:</b> Dados são carregados nas tabelas dimensionais e de fato.</td>
+  </tr>
+  <tr>
+      <td style="border: 1px solid black; padding: 5px;"><b>6. Análise e Relatórios: </b> Criar relatórios e análises a apartir dos dados.</td>
+  </tr>
+</table>
+
+
 
 <table style="border: 1px solid black; border-collapse: collapse;">
   <tr>
@@ -35,7 +64,7 @@ Desenvolver DAG para automatizar extração de dados de tabelas OLTP , transform
   </tr>
   <tr>
     <td style="border: 1px solid black; padding: 5px;">Período</td>
-    <td style="border: 1px solid black; padding: 5px;">1º semestre</td>
+    <td style="border: 1px solid black; padding: 5px;">1º período</td>
   </tr>
   <tr>
     <td style="border: 1px solid black; padding: 5px;">Datas</td>
@@ -46,6 +75,7 @@ Desenvolver DAG para automatizar extração de dados de tabelas OLTP , transform
     <td style="border: 1px solid black; padding: 5px;">Todos os trabalhos desenvolvidos durante o curso podem ser encontrados aqui: <a href="https://github.com/RegiMaria/Graduate_program_Data_Science_and_Analytical_Intelligence">Repositório da pós</a></td>
   </tr>
 </table>
+
 
 ![wyden_logo](imag/wydenlogo.png)
 
@@ -75,7 +105,7 @@ Usamos um ambiente de desenvolvimento local para construção do pipeline.
 
 ------------------------------------------------------------------------------------------------------------------
 
-Vamos acessar o airflow, criar senha e admin, testamos a DAG conforme nos a modificamos.
+Vamos acessar o airflow, criar a conexão com os bancos de dados, testar a DAG conforme nos a modificamos.
 
 ![pipeline_airflow](imag/pipeline_airflow.png)
 

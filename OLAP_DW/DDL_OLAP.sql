@@ -1,4 +1,4 @@
---DimEndereco
+
 CREATE TABLE dimendereco (
     sk_endereco SERIAL PRIMARY KEY,
     idendereco INTEGER NOT NULL,
@@ -78,6 +78,25 @@ CREATE TABLE DimProduto (
     numero_parcelas_maximo INTEGER NOT NULL,
     condicoes_especiais TEXT
 );
+
+
+-- Para atender o estudo sobre a padronização de nomenclatura para DW:
+-- Vamos realizar mapeamento p cada campo apontar p respectivo item
+
+CREATE TABLE dimproduto (
+    sk_produto SERIAL PRIMARY KEY,
+    codigo_produto INT NOT NULL,  -- Referência ao idproduto do OLTP
+    nome_produto VARCHAR(255) NOT NULL,
+    descricao_produto VARCHAR(255),
+    categoria_produto VARCHAR(100) NOT NULL,
+    valor_minimo_produto DECIMAL(10, 2) NOT NULL,
+    valor_maximo_produto DECIMAL(10, 2) NOT NULL,
+    max_parcelas_produto INTEGER NOT NULL,
+    condicoes_especiais_produto TEXT
+    
+);
+
+
 
 --  DimPagamento
 CREATE TABLE DimPagamento (
